@@ -17,6 +17,14 @@
             return $users;
         }
 
+        public function rowCount(): int
+        {
+            global $conn;
+            $sql = "select * from users order by  id desc";
+            $stmt = $conn->query($sql);
+            return $stmt->rowCount();
+        }
+
         public function store($params){
             global $conn;
             $object = new User($params);

@@ -17,7 +17,7 @@
         public function store(): void
         {
             (new UserService())->store($_POST);
-            $this->index();
+            header("location:?c=user");
         }
 
         public function edit(){
@@ -29,12 +29,12 @@
 
         public function update(){
             (new UserService())->update($_POST);
-            $this->index();
+            header("location:?c=user");
         }
 
         public function delete(){
             $id = $_GET['id'];
             (new UserService())->delete($id);
-            $this->index();
+            header("location:?c=user");
         }
     }
